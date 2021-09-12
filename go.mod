@@ -1,7 +1,5 @@
-module ikyashop.com/riset
+module github.com/ajiprabowo/riset
 
 go 1.17
-
-replace ikyashop.com/statik => ./statik
 
 require github.com/rakyll/statik v0.1.7
