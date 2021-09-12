@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"time"
 
+	_ "github.com/ajiprabowo/riset/statik"
 	"github.com/rakyll/statik/fs"
 )
 
