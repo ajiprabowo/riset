@@ -7,8 +7,6 @@ import (
 	"log"
 	"net/http"
 	"time"
-
-	_ "github.com/ajiprabowo/riset/statik"
 )
 
 //go:embed readme.txt
@@ -40,33 +38,7 @@ func context(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// ref. https://golang.hotexamples.com/examples/http/-/ServeFile/golang-servefile-function-examples.html
 func readme(w http.ResponseWriter, r *http.Request) {
-
-	//Using helper ServeFile
-	//http.ServeFile(w, r, "readme.txt")
-
-	//manual
-	//body, err := ioutil.ReadFile("readme.txt")
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-	//fmt.Fprintf(w, "%s", body)
-
-	//statik embed
-	//statikFS, err := fs.New()
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-
-	// Access individual files by their paths.
-	//f, err := statikFS.Open("/readme.txt")
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-	//defer f.Close()
-
-	//contents, err := ioutil.ReadAll(f)
 
 	contents, err := f.ReadFile("readme.txt")
 	if err != nil {
