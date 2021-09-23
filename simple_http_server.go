@@ -1,15 +1,18 @@
 package main
 
 import (
+	"embed"
+
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"time"
 
 	_ "github.com/ajiprabowo/riset/statik"
-	"github.com/rakyll/statik/fs"
 )
+
+//go:embed readme.txt
+var f embed.FS
 
 func headers(w http.ResponseWriter, r *http.Request) {
 
@@ -51,18 +54,21 @@ func readme(w http.ResponseWriter, r *http.Request) {
 	//fmt.Fprintf(w, "%s", body)
 
 	//statik embed
-	statikFS, err := fs.New()
-	if err != nil {
-		log.Fatal(err)
-	}
+	//statikFS, err := fs.New()
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
 
 	// Access individual files by their paths.
-	f, err := statikFS.Open("/readme.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer f.Close()
-	contents, err := ioutil.ReadAll(f)
+	//f, err := statikFS.Open("/readme.txt")
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//defer f.Close()
+
+	//contents, err := ioutil.ReadAll(f)
+
+	contents, err := f.ReadFile("readme.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
